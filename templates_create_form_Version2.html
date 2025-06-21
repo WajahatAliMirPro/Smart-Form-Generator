@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Form</title>
+    <script>
+        function addField() {
+            var fieldsDiv = document.getElementById("fields");
+            var input = document.createElement("input");
+            input.type = "text";
+            input.name = "fields[]";
+            input.placeholder = "Field name";
+            fieldsDiv.appendChild(input);
+            fieldsDiv.appendChild(document.createElement("br"));
+        }
+    </script>
+</head>
+<body>
+    <h1>Create New Form</h1>
+    <form method="post">
+        <label>Form Name: <input type="text" name="form_name" required /></label><br>
+        <div id="fields">
+            <input type="text" name="fields[]" placeholder="Field name" required /><br>
+        </div>
+        <button type="button" onclick="addField()">Add Field</button><br><br>
+        <input type="submit" value="Create Form" />
+    </form>
+    <a href="{{ url_for('index') }}">Back to Forms</a>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ form['name'] }}</title>
+</head>
+<body>
+    <h1>{{ form['name'] }}</h1>
+    <form method="post">
+        {% for field in form['fields'] %}
+            <label>{{ field }}: <input type="text" name="{{ field }}" /></label><br>
+        {% endfor %}
+        <input type="submit" value="Submit" />
+    </form>
+    <a href="{{ url_for('index') }}">Back to Forms</a>
+</body>
+</html>

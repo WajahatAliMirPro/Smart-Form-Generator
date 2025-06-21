@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Form Generator</title>
+</head>
+<body>
+    <h1>Smart Form Generator</h1>
+    <a href="{{ url_for('create_form') }}">Create New Form</a>
+    <h2>Forms</h2>
+    <ul>
+        {% for form in forms %}
+        <li>
+            {{ form['name'] }} -
+            <a href="{{ url_for('show_form', form_id=form['id']) }}">Fill</a> |
+            <a href="{{ url_for('export_form', form_id=form['id']) }}">Export CSV</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
